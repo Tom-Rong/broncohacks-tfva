@@ -1,10 +1,26 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import type { GenerateResponse, Lecture, TranscribeResponse, UserNote } from "@/types";
 
 export default function GeneratePage() {
+  return (
+    <Suspense fallback={<GeneratePageLoading />}>
+      <GeneratePageContent />
+    </Suspense>
+  );
+}
+
+function GeneratePageLoading() {
+  return (
+    <div className="flex min-h-[50vh] items-center justify-center">
+      <div className="text-slate-400">Loading...</div>
+    </div>
+  );
+}
+
+function GeneratePageContent() {
   const searchParams = useSearchParams();
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
