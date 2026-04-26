@@ -1,7 +1,0 @@
-{
-  "buildCommand": "cd broncohacks-tvfa-gemini-patched && pnpm build",
-  "outputDirectory": "broncohacks-tvfa-gemini-patched/.next",
-  "installCommand": "cd broncohacks-tvfa-gemini-patched && pnpm install",
-  "framework": "nextjs",
-  "rootDirectory": "broncohacks-tvfa-gemini-patched"
-}
